@@ -52,19 +52,6 @@ namespace ZSports.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Permissions",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permissions", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -194,30 +181,6 @@ namespace ZSports.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "PermissionRole",
-                columns: table => new
-                {
-                    PermissionsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PermissionRole", x => new { x.PermissionsId, x.RoleId });
-                    table.ForeignKey(
-                        name: "FK_PermissionRole_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PermissionRole_Permissions_PermissionsId",
-                        column: x => x.PermissionsId,
-                        principalTable: "Permissions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -258,11 +221,6 @@ namespace ZSports.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PermissionRole_RoleId",
-                table: "PermissionRole",
-                column: "RoleId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_RoleUser_UserId",
                 table: "RoleUser",
                 column: "UserId");
@@ -287,13 +245,7 @@ namespace ZSports.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PermissionRole");
-
-            migrationBuilder.DropTable(
                 name: "RoleUser");
-
-            migrationBuilder.DropTable(
-                name: "Permissions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

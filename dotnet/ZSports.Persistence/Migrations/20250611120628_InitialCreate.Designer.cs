@@ -12,7 +12,7 @@ using ZSports.Persistence;
 namespace ZSports.Persistence.Migrations
 {
     [DbContext(typeof(ZSportsDbContext))]
-    [Migration("20250610203018_InitialCreate")]
+    [Migration("20250611120628_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -128,21 +128,6 @@ namespace ZSports.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("PermissionRole", b =>
-                {
-                    b.Property<Guid>("PermissionsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("PermissionsId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("PermissionRole");
-                });
-
             modelBuilder.Entity("RoleUser", b =>
                 {
                     b.Property<Guid>("RolesId")
@@ -156,26 +141,6 @@ namespace ZSports.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("RoleUser");
-                });
-
-            modelBuilder.Entity("ZSports.Domain.Permission", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Permissions");
                 });
 
             modelBuilder.Entity("ZSports.Domain.Role", b =>
@@ -323,21 +288,6 @@ namespace ZSports.Persistence.Migrations
                     b.HasOne("ZSports.Domain.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PermissionRole", b =>
-                {
-                    b.HasOne("ZSports.Domain.Permission", null)
-                        .WithMany()
-                        .HasForeignKey("PermissionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ZSports.Domain.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

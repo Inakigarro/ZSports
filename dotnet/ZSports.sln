@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36202.13 d17.14
+VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Api", "ZSports.Api\ZSports.Api.csproj", "{F46E6CD0-3B70-48EF-B612-02F8DEF0CD0A}"
 EndProject
@@ -12,6 +12,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Persistence", "ZSports.Persistence\ZSports.Persistence.csproj", "{B9060639-E4C7-4FF4-96A2-B3BB8A29C8A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Domain", "ZSports.Domain\ZSports.Domain.csproj", "{9659FB9E-0FAA-4B2E-8CCF-AEDDCA476815}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Establecimientos", "Establecimientos", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Establecimientos.Domain", "Servicios\Establecimientos\ZSports.Establecimientos.Domain\ZSports.Establecimientos.Domain.csproj", "{617CEC26-4C7F-4E07-8EB1-0D43AAB36727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Establecimientos.Domain.Tests", "Servicios\Establecimientos\ZSports.Establecimientos.Domain.Tests\ZSports.Establecimientos.Domain.Tests.csproj", "{80E51BFE-715D-427E-960E-EBAD88DCE72E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZSports.Establecimientos.Contracts", "Servicios\Establecimientos\ZSports.Establecimientos.Contracts\ZSports.Establecimientos.Contracts.csproj", "{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,9 +43,27 @@ Global
 		{9659FB9E-0FAA-4B2E-8CCF-AEDDCA476815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9659FB9E-0FAA-4B2E-8CCF-AEDDCA476815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9659FB9E-0FAA-4B2E-8CCF-AEDDCA476815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617CEC26-4C7F-4E07-8EB1-0D43AAB36727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617CEC26-4C7F-4E07-8EB1-0D43AAB36727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617CEC26-4C7F-4E07-8EB1-0D43AAB36727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617CEC26-4C7F-4E07-8EB1-0D43AAB36727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80E51BFE-715D-427E-960E-EBAD88DCE72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E51BFE-715D-427E-960E-EBAD88DCE72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E51BFE-715D-427E-960E-EBAD88DCE72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E51BFE-715D-427E-960E-EBAD88DCE72E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {D5E93650-2CEC-4C77-827F-993A12840DB2}
+		{617CEC26-4C7F-4E07-8EB1-0D43AAB36727} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{80E51BFE-715D-427E-960E-EBAD88DCE72E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{73CBF729-7AF8-4A7B-90DE-08AA57F43B7C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7724CADE-CB3A-4577-9430-CD71ECF372D1}
