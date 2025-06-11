@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ZSports.Persistence;
 using ZSports.Domain;
 using Microsoft.AspNetCore.Identity;
+using ZSports.Contracts;
 
 namespace ZSports.Api;
 
@@ -23,6 +24,10 @@ public static class Program
         builder.Services.AddIdentity<User, Role>()
             .AddEntityFrameworkStores<ZSportsDbContext>()
             .AddDefaultTokenProviders();
+
+        builder.Services
+            .AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>))
+            .AddScoped<IUnitOfWork, UnitOfWork>();
 
         var app = builder.Build();
 

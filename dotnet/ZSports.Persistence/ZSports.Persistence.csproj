@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZSports.Contracts\ZSports.Contracts.csproj" />
     <ProjectReference Include="..\ZSports.Domain\ZSports.Domain.csproj" />
   </ItemGroup>
 
