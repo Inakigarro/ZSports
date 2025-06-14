@@ -1,9 +1,8 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using ZSports.Contracts;
+﻿using ZSports.Contracts;
+using ZSports.Establecimientos.Contracts.Establecimientos.CrearEstablecimiento;
+using ZSports.Establecimientos.Contracts.Establecimientos.ModificarEstablecimiento;
 
-namespace ZSports.Establecimientos.Contracts;
+namespace ZSports.Establecimientos.Contracts.Establecimientos;
 
 /// <summary>
 /// Servicio para la gestión de establecimientos.
@@ -16,7 +15,7 @@ public interface IEstablecimientosService
     /// <param name="establecimiento">Entidad de establecimiento a agregar.</param>
     /// <param name="cancellationToken">Token de cancelación.</param>
     /// <returns>El identificador del nuevo establecimiento.</returns>
-    Task<Guid> AgregarAsync(object establecimiento, CancellationToken cancellationToken);
+    Task<EstablecimientoDto> AgregarAsync(CrearEstablecimientoRequest establecimiento, CancellationToken cancellationToken);
 
     /// <summary>
     /// Obtiene un establecimiento por su identificador.
@@ -24,16 +23,15 @@ public interface IEstablecimientosService
     /// <param name="id">Identificador del establecimiento.</param>
     /// <param name="cancellationToken">Token de cancelación.</param>
     /// <returns>El establecimiento encontrado o null si no existe.</returns>
-    Task<object?> ObtenerPorIdAsync(Guid id, CancellationToken cancellationToken);
+    Task<EstablecimientoDto> ObtenerPorIdAsync(Guid id, CancellationToken cancellationToken);
 
     /// <summary>
     /// Obtiene una lista paginada de establecimientos.
     /// </summary>
-    /// <param name="pagina">Número de página (base 1).</param>
-    /// <param name="tamanoPagina">Cantidad de elementos por página.</param>
+    /// <param name="paginationInfo">Información de paginación.</param>
     /// <param name="cancellationToken">Token de cancelación.</param>
     /// <returns>Lista paginada de establecimientos.</returns>
-    Task<IEnumerable<object>> ObtenerPaginadoAsync(GetItemsPaginated paginationInfo, CancellationToken cancellationToken);
+    Task<IEnumerable<EstablecimientoDto>> ObtenerPaginadoAsync(GetItemsPaginated paginationInfo, CancellationToken cancellationToken);
 
     /// <summary>
     /// Modifica un establecimiento existente.
@@ -42,13 +40,12 @@ public interface IEstablecimientosService
     /// <param name="establecimiento">Datos nuevos del establecimiento.</param>
     /// <param name="cancellationToken">Token de cancelación.</param>
     /// <returns>True si la modificación fue exitosa, false si no se encontró.</returns>
-    Task<bool> ModificarAsync(Guid id, object establecimiento, CancellationToken cancellationToken);
+    Task<EstablecimientoDto> ModificarAsync(ModificarEstablecimientoRequest establecimiento, CancellationToken cancellationToken);
 
     /// <summary>
     /// Elimina un establecimiento por su identificador.
     /// </summary>
     /// <param name="id">Identificador del establecimiento a eliminar.</param>
     /// <param name="cancellationToken">Token de cancelación.</param>
-    /// <returns>True si la eliminación fue exitosa, false si no se encontró.</returns>
-    Task<bool> EliminarAsync(Guid id, CancellationToken cancellationToken);
+    Task EliminarAsync(Guid id, CancellationToken cancellationToken);
 }

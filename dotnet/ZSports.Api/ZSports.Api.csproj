@@ -24,6 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Servicios\Establecimientos\ZSports.Establecimientos.Application\ZSports.Establecimientos.Application.csproj" />
       <ProjectReference Include="..\ZSports.Persistence\ZSports.Persistence.csproj" />
     </ItemGroup>
 

@@ -10,10 +10,7 @@ public class Tests
     [SetUp]
     public void Setup()
     {
-        _establecimiento = new Establecimiento
-        {
-            Id = Guid.NewGuid()
-        };
+        _establecimiento = new Establecimiento();
     }
 
     [Test]

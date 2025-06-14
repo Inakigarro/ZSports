@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZSports.Persistence;
 
@@ -11,9 +12,11 @@ using ZSports.Persistence;
 namespace ZSports.Persistence.Migrations
 {
     [DbContext(typeof(ZSportsDbContext))]
-    partial class ZSportsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250612182837_AddEstablecimientos")]
+    partial class AddEstablecimientos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,28 +241,6 @@ namespace ZSports.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("ZSports.Establecimientos.Domain.Cancha", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("EstablecimientoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TipoSuelo")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EstablecimientoId");
-
-                    b.ToTable("Cancha");
-                });
-
             modelBuilder.Entity("ZSports.Establecimientos.Domain.Establecimiento", b =>
                 {
                     b.Property<Guid>("Id")
@@ -355,22 +336,6 @@ namespace ZSports.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ZSports.Establecimientos.Domain.Cancha", b =>
-                {
-                    b.HasOne("ZSports.Establecimientos.Domain.Establecimiento", "Establecimiento")
-                        .WithMany("Canchas")
-                        .HasForeignKey("EstablecimientoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Establecimiento");
-                });
-
-            modelBuilder.Entity("ZSports.Establecimientos.Domain.Establecimiento", b =>
-                {
-                    b.Navigation("Canchas");
                 });
 #pragma warning restore 612, 618
         }

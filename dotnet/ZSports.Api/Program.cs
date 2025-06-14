@@ -3,6 +3,9 @@ using ZSports.Persistence;
 using ZSports.Domain;
 using Microsoft.AspNetCore.Identity;
 using ZSports.Contracts;
+using ZSports.Establecimientos.Contracts;
+using ZSports.Establecimientos.Persistence;
+using ZSports.Establecimientos.Application;
 
 namespace ZSports.Api;
 
@@ -27,7 +30,8 @@ public static class Program
 
         builder.Services
             .AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>))
-            .AddScoped<IUnitOfWork, UnitOfWork>();
+            .AddScoped<IUnitOfWork, UnitOfWork>()
+            .AgregarDependenciasEstablecimientos();
 
         var app = builder.Build();
 

@@ -18,9 +18,9 @@ public class UnitOfWork(ZSportsDbContext dbContext) : IUnitOfWork
         return (IGenericRepository<TItem, TKey>)repository;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
     {
-        await dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync(cancellationToken);
     }
 
     public void Dispose()

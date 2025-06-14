@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ZSports.Domain;
+using ZSports.Establecimientos.Persistence.Configurations;
 using ZSports.Persistence.Configurations;
 
 namespace ZSports.Persistence;
@@ -14,5 +15,6 @@ public class ZSportsDbContext : IdentityDbContext<User, Role, Guid>
         base.OnModelCreating(builder);
         builder.ApplyConfiguration(new UserConfiguration());
         builder.ApplyConfiguration(new RoleConfiguration());
+        builder.ApplyConfiguration(new EstablecimientoConfiguration());
     }
 }

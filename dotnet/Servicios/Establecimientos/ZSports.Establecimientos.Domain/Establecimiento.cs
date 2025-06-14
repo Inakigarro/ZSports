@@ -4,11 +4,12 @@ namespace ZSports.Establecimientos.Domain;
 
 public class Establecimiento
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; } = Guid.NewGuid();
     public string Nombre { get; private set; } = string.Empty;
     public string Direccion { get; private set; } = string.Empty;
     public string Telefono { get; private set; } = string.Empty;
     public string Email { get; private set; } = string.Empty;
+    public virtual ICollection<Cancha> Canchas { get; private set; } = []; 
 
     public void SetNombre(string nombre)
     {

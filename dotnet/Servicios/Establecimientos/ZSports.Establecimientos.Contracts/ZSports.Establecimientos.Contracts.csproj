@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\ZSports.Contracts\ZSports.Contracts.csproj" />
+    <ProjectReference Include="..\ZSports.Establecimientos.Domain\ZSports.Establecimientos.Domain.csproj" />
   </ItemGroup>
 
 </Project>
