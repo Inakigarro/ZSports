@@ -19,6 +19,8 @@ public record CanchaDto
     /// </summary>
     public TipoSuelo TipoSuelo { get; set; } = TipoSuelo.SinDefinir;
 
+    public string TipoSueloParseado { get; set; } = string.Empty;
+
     /// <summary>
     /// Id del establecimiento al que pertenece la cancha.
     /// </summary>

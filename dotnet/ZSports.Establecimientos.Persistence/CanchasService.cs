@@ -4,6 +4,7 @@ using ZSports.Establecimientos.Contracts.Canchas;
 using ZSports.Establecimientos.Contracts.Canchas.CrearCancha;
 using ZSports.Establecimientos.Contracts.Canchas.ModificarCancha;
 using ZSports.Establecimientos.Domain;
+using ZSports.Establecimientos.Domain.Enums;
 
 namespace ZSports.Establecimientos.Persistence;
 
@@ -28,6 +29,7 @@ public class CanchasService(ILogger<CanchasService> logger, IUnitOfWork unitOfWo
                 Id = nuevaCancha.Id,
                 Numero = nuevaCancha.Numero,
                 TipoSuelo = nuevaCancha.TipoSuelo,
+                TipoSueloParseado = nuevaCancha.TipoSuelo.AsString(),
                 EstablecimientoId = nuevaCancha.EstablecimientoId
             };
         }

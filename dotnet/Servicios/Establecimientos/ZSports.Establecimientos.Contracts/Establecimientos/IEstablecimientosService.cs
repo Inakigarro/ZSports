@@ -26,6 +26,14 @@ public interface IEstablecimientosService
     Task<EstablecimientoDto> ObtenerPorIdAsync(Guid id, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Obtiene un establecimiento por su identificador, incluyendo sus canchas.
+    /// </summary>
+    /// <param name="id">Identificador del establecimiento.</param>
+    /// <param name="cancellationToken">Token de cancelación</param>
+    /// <returns>El establecimiento encontrado</returns>
+    Task<EstablecimientoConCanchasDto> ObtenerPorIdConCanchaAsync(Guid id, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Obtiene una lista paginada de establecimientos.
     /// </summary>
     /// <param name="paginationInfo">Información de paginación.</param>

@@ -25,6 +25,11 @@ public class GenericRepository<TItem, TKey>(ZSportsDbContext dbContext) : IGener
             ?? throw new KeyNotFoundException($"Item with id {id} not found.");
     }
 
+    public IQueryable<TItem> GetAsQueryable()
+    {
+        return dbContext.Set<TItem>().AsQueryable();
+    }
+
     /// <inheritdoc/>
     public void Delete(TItem item)
     {

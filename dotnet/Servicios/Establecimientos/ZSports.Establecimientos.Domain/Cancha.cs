@@ -22,7 +22,10 @@ public class Cancha
     {
         if (!Enum.IsDefined(tipoSuelo))
             throw new ArgumentException("El tipo de suelo especificado no es válido.", nameof(tipoSuelo));
-        
+
+        if (tipoSuelo == TipoSuelo.SinDefinir)
+            throw new ArgumentException("El tipo de suelo no puede ser 'SinDefinir'.", nameof(tipoSuelo));
+
         this.TipoSuelo = tipoSuelo;
     }
 

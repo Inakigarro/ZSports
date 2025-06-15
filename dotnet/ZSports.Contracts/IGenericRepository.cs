@@ -31,6 +31,11 @@ public interface IGenericRepository<TItem, TKey> where TItem : class
     Task<IEnumerable<TItem>> GetAllAsync(GetItemsPaginated paginationInfo, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Obtiene un IQueryable de Items.
+    /// </summary>
+    IQueryable<TItem> GetAsQueryable();
+
+    /// <summary>
     /// Elimina un Item de la base de datos por su Id.
     /// </summary>
     /// <param name="item">El Item a eliminar.</param>
