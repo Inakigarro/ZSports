@@ -1,0 +1,19 @@
+<button
+	[id]="this.id()"
+	class="button"
+	[ngClass]="this.disabled() ? 'disabled' : this.type()"
+	[disabled]="this.disabled()"
+	(click)="this.onButtonClick()"
+>
+	@if (this.hasIcon()){ @if (this.iconPosition() === 'left') {
+	<i [class]="this.icon()" class="button-icon"></i>
+	@if (this.label()) {
+	<span class="button-label">{{ this.label() }}</span>
+	} } @else { @if (this.label()) {
+	<span class="button-label">{{ this.label() }}</span>
+	}
+	<i [class]="this.icon()" class="button-icon"></i>
+	} } @else { @if (this.label()) {
+	<span class="button-label">{{ this.label() }}</span>
+	} }
+</button>

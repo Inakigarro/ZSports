@@ -1,0 +1,36 @@
+@import "../../../theme-var.scss";
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $surface;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+	padding: 0.5rem 1rem;
+
+	.card-header {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		margin-bottom: 1.5rem;
+	}
+
+	.card-body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.card-footer {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1rem;
+	}
+}

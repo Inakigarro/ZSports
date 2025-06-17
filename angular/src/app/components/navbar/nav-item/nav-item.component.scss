@@ -1,0 +1,35 @@
+@import "../../../../theme-var.scss";
+
+.nav-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	color: $text-primary;
+	text-decoration: none;
+	border-radius: 6px;
+	font-weight: 500;
+	font-size: 1rem;
+	transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+		color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+	&:hover {
+		background: $surface;
+		color: $accent;
+	}
+
+	&.active {
+		background: $accent;
+		color: $background;
+	}
+
+	.nav-item-label {
+		color: inherit;
+		font-size: 1rem;
+		font-weight: 500;
+	}
+	.nav-item-icon {
+		color: inherit;
+		font-size: 1.2em;
+	}
+}

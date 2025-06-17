@@ -1,0 +1,40 @@
+<table [id]="this.id() + '-list'" class="list-table">
+	<thead>
+		<tr>
+			@for (col of columns(); track col.key) {
+			<th [style.width]="col.width" [style.text-align]="col.align || 'left'">
+				{{ col.label }}
+			</th>
+			}
+			<th id="list-actions" class="list-actions-header"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (row of data(); track row) {
+		<tr>
+			@for (col of columns(); track col.key) {
+			<td [style.text-align]="col.align || 'left'">
+				{{ row[col.key] }}
+			</td>
+			}
+			<td class="list-actions">
+				<app-button
+					[id]="this.editarButton.id"
+					[icon]="this.editarButton.icon"
+					[hasIcon]="this.editarButton.icon !== undefined"
+					[type]="this.editarButton.type!"
+					(onClick)="this.onEditRowButtonClicked(row['id'])"
+				/>
+				<app-button
+					[id]="this.eliminarButton.id"
+					[icon]="this.eliminarButton.icon"
+					[hasIcon]="this.eliminarButton.icon !== undefined"
+					[type]="this.eliminarButton.type!"
+					(onClick)="this.onDeleteRowButtonClicked(row['id'])"
+				/>
+			</td>
+		</tr>
+
+		}
+	</tbody>
+</table>

@@ -1,0 +1,23 @@
+@import "../../../../theme-var.scss";
+
+.select {
+	background-color: $surface;
+	color: $text-primary;
+	border: 2px solid $border;
+	border-radius: 5px;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	transition: border-color 0.2s;
+	appearance: none;
+}
+
+.select:focus {
+	border-color: $accent;
+	outline: none;
+}
+
+select::-ms-expand {
+	display: none;
+}

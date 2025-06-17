@@ -1,0 +1,29 @@
+@import "../../../theme-var.scss";
+
+.topbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+	background-color: $surface;
+	width: 100%;
+	height: clamp(3.5rem, 3.5rem + 2vw, 4.5rem);
+	position: relative;
+
+	&-title {
+		margin-left: 0.5rem;
+		color: $text-primary;
+		font-size: clamp(1rem, 1.5vw, 3rem);
+		font-weight: 600;
+		text-align: center;
+	}
+
+	.spacer {
+		flex: 1 1 auto;
+	}
+
+	.secondary-button {
+		margin-right: 0.5rem;
+	}
+}

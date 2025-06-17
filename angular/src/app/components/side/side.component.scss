@@ -1,0 +1,47 @@
+@import "../../../theme-var.scss";
+
+.side-container {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.main-content {
+	flex: 1 1 auto;
+	transition: filter 0.3s;
+	&.blurred {
+		filter: blur(2px) grayscale(0.2) brightness(0.8);
+		pointer-events: none;
+		user-select: none;
+	}
+}
+
+.side-panel {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 100vh;
+	background: $surface;
+	box-shadow: -2px 0 16px rgba(0, 0, 0, 0.18);
+	overflow-x: hidden;
+	transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: 20;
+	&.expanded {
+		width: 35%;
+		min-width: 220px;
+		max-width: 90vw;
+	}
+}
+
+.side-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(24, 26, 32, 0.45);
+	z-index: 15;
+	cursor: crosshair;
+}
