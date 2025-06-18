@@ -98,7 +98,7 @@ export class NuevaCanchaComponent implements OnInit, OnDestroy {
 		if (this.form.valid) {
 			const cancha: CrearCanchaRequest = {
 				numero: this.form.controls["numero"].value,
-				tipoSuelo: this.form.controls["tipoSuelo"].value,
+				tipoSuelo: Number.parseInt(this.form.controls["tipoSuelo"].value),
 				establecimientoId: establecimientoId,
 			};
 

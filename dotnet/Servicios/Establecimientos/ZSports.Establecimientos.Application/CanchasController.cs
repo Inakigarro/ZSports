@@ -11,7 +11,7 @@ public class CanchasController(ICanchasService canchasService): ControllerBase
 {
     [HttpPost]
     [Route("agregarCancha")]
-    public async Task<IActionResult> AgregarCancha(CrearCanchaRequest request, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> AgregarCancha([FromBody] CrearCanchaRequest request, CancellationToken cancellationToken = default)
     {
 		try
 		{

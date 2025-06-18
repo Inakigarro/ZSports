@@ -10,11 +10,24 @@ import { establecimientoId } from "../canchas.models";
 export class CanchasEffects {
 	public initCanchas$ = createEffect(() =>
 		this.actions.pipe(
-			ofType(CanchasActions.iniciarCargaDeCanchas),
+			ofType(
+				CanchasActions.iniciarCargaDeCanchas,
+				CanchasActions.canchaCreada),
 			switchMap(() =>
 				this.service.cargarCanchasPorEstablecimiento(establecimientoId).pipe(
 					filter((x) => !!x),
 					map((canchas) => CanchasActions.canchasCargadas({ canchas }))
+				)
+			)
+		)
+	);
+
+	public crearCancha$ = createEffect(() =>
+		this.actions.pipe(
+			ofType(CanchasActions.crearCancha),
+			switchMap((action) =>
+				this.service.agregarCancha(action.cancha).pipe(
+					map(() => CanchasActions.canchaCreada())
 				)
 			)
 		)

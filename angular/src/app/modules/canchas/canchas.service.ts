@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Action, Store } from "@ngrx/store";
 import { environment } from "@app/environments/environment.local";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Cancha } from "./canchas.models";
+import { Cancha, CrearCanchaRequest } from "./canchas.models";
 import {
 	selectCanchas,
 	selectCrearCanchaSucceded,
@@ -25,6 +25,11 @@ export class CanchasService {
 
 	public dispatch(action: Action) {
 		this.store.dispatch(action);
+	}
+
+	public agregarCancha(crearCanchaRequest: CrearCanchaRequest) {
+		return this.httpClient.post<Cancha>(
+			`${this.url}/agregarCancha`, crearCanchaRequest);
 	}
 
 	public cargarCanchasPorEstablecimiento(establecimientoId: string) {
