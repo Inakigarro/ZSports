@@ -21,6 +21,13 @@
 	border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
+
+.scrollable {
+	overflow-y: auto;
+	max-height: 55vh;
+	padding: 1rem;
+}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);

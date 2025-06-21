@@ -18,3 +18,8 @@ export const selectCrearCanchaSucceded = createSelector(
 	state,
 	(state) => state.crearCanchaSucceded
 );
+
+export const selectEditarCanchaSucceded = createSelector(
+	state,
+	(state) => state.editarCanchaSucceded
+);

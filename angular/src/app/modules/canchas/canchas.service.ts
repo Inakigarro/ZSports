@@ -7,6 +7,7 @@ import {
 	selectCanchas,
 	selectCrearCanchaSucceded,
 	selectCurrentCancha,
+	selectEditarCanchaSucceded,
 	selectLoading,
 } from "./state/canchas.selectors";
 
@@ -17,6 +18,7 @@ export class CanchasService {
 	public canchas$ = this.store.select(selectCanchas);
 	public canchaActual$ = this.store.select(selectCurrentCancha);
 	public crearCanchaSucceded$ = this.store.select(selectCrearCanchaSucceded);
+	public editarCanchaSucceded$ = this.store.select(selectEditarCanchaSucceded);
 
 	constructor(
 		private readonly store: Store,
@@ -29,7 +31,9 @@ export class CanchasService {
 
 	public agregarCancha(crearCanchaRequest: CrearCanchaRequest) {
 		return this.httpClient.post<Cancha>(
-			`${this.url}/agregarCancha`, crearCanchaRequest);
+			`${this.url}/agregarCancha`,
+			crearCanchaRequest
+		);
 	}
 
 	public cargarCanchasPorEstablecimiento(establecimientoId: string) {

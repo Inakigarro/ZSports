@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 using ZSports.Contracts;
 using ZSports.Establecimientos.Contracts.Canchas;
 using ZSports.Establecimientos.Contracts.Canchas.CrearCancha;
@@ -47,6 +46,12 @@ public class CanchasService(ILogger<CanchasService> logger, IUnitOfWork unitOfWo
         GetItemsPaginated paginationInfo,
         CancellationToken cancellationToken)
     {
+        if (establecimientoId == Guid.Empty)
+        {
+            logger.LogError("El ID del establecimiento no puede ser un GUID vacío.");
+            throw new ArgumentException("El ID del establecimiento no puede ser un GUID vacío.", nameof(establecimientoId));
+        }
+
         try
         {
             logger.LogInformation("Obteniendo canchas para el establecimiento con ID: {EstablecimientoId}", establecimientoId);
@@ -80,9 +85,36 @@ public class CanchasService(ILogger<CanchasService> logger, IUnitOfWork unitOfWo
         throw new NotImplementedException();
     }
 
-    public Task<CanchaDto> ModificarAsync(ModificarCanchaRequest cancha, CancellationToken cancellationToken)
+    public async Task<CanchaDto> ModificarAsync(ModificarCanchaRequest cancha, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        try
+        {
+            logger.LogInformation("Iniciando el proceso de edicion de la cancha N°: {numero}", cancha.Numero);
+            var canchaExistente = await unitOfWork.GetRepository<Cancha, Guid>().GetByIdAsync(cancha.Id, cancellationToken);
+            if (canchaExistente is null)
+            {
+                logger.LogError("No se encontro una cancha con Id: {id}", cancha.Id);
+                throw new KeyNotFoundException($"No se encontró la cancha con Id: {cancha.Id}");
+            }
+
+            canchaExistente.SetNumero(cancha.Numero);
+            canchaExistente.SetTipoSuelo(cancha.TipoSuelo);
+            canchaExistente.SetEstablecimiento(cancha.EstablecimientoId);
+
+            return new()
+            {
+                Id = canchaExistente.Id,
+                Numero = canchaExistente.Numero,
+                TipoSuelo = canchaExistente.TipoSuelo,
+                TipoSueloParseado = canchaExistente.TipoSuelo.AsString(),
+                EstablecimientoId = canchaExistente.EstablecimientoId
+            };
+        }
+        catch (Exception)
+        {
+            logger.LogError("Error al modificar la cancha con Id: {canchaId}", cancha.Id);
+            throw;
+        }
     }
 
     public Task<IEnumerable<CanchaDto>> ObtenerPaginadoAsync(GetItemsPaginated paginationInfo, CancellationToken cancellationToken)

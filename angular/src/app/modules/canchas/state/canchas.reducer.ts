@@ -10,6 +10,7 @@ export interface CanchasState {
 	error?: string;
 	currentCancha?: Cancha;
 	crearCanchaSucceded?: boolean;
+	editarCanchaSucceded?: boolean;
 }
 
 export const initialCanchasState: CanchasState = {

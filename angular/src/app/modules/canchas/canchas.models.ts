@@ -1,5 +1,12 @@
-export const establecimientoId = "0ac1513a-36af-4f88-adb7-2cabb584feff"; //Id de pruebas.
+export const establecimientoId = "7A88D6F3-4776-4C35-A644-3DA57957C486"; //Id de pruebas.
 export interface CrearCanchaRequest {
+	numero: number;
+	tipoSuelo: TipoSuelo;
+	establecimientoId: string;
+}
+
+export interface EditarCanchaRequest {
+	id: string;
 	numero: number;
 	tipoSuelo: TipoSuelo;
 	establecimientoId: string;

@@ -9,7 +9,7 @@ import { CanchasActions } from "./state/canchas.actions";
 import { Subject, takeUntil } from "rxjs";
 import { CommonModule } from "@angular/common";
 import { SideComponent } from "@app/components/side/side.component";
-import { NuevaCanchaComponent } from "./components/nueva-cancha/nueva-cancha.component";
+import { CrearEditarCanchaComponent } from "./components/crear-editar-cancha/crear-editar-cancha.component";
 
 @Component({
 	selector: "app-canchas-list",
@@ -22,7 +22,7 @@ import { NuevaCanchaComponent } from "./components/nueva-cancha/nueva-cancha.com
 		CommonModule,
 		ListComponent,
 		SideComponent,
-		NuevaCanchaComponent,
+		CrearEditarCanchaComponent,
 	],
 	providers: [],
 })
@@ -42,12 +42,13 @@ export class CanchasListComponent implements OnInit, OnDestroy {
 		{
 			key: "numero",
 			label: "N°",
-			width: "1rem",
+			width: "5%",
 			align: "center",
 		},
 		{
 			key: "tipoSueloParseado",
 			label: "Tipo de Suelo",
+			width: "80%",
 			align: "left",
 		},
 	];
@@ -56,7 +57,8 @@ export class CanchasListComponent implements OnInit, OnDestroy {
 
 	protected canchasLoading$ = this.service.canchasLoading$;
 	protected currentCancha$ = this.service.canchaActual$;
-	protected nuevaCanchaOpened: boolean = false;
+	protected sidePanelOpened: boolean = false;
+	protected isEdition: boolean = false;
 
 	constructor(private readonly service: CanchasService) {}
 
@@ -73,9 +75,15 @@ export class CanchasListComponent implements OnInit, OnDestroy {
 	}
 
 	protected onBackdropClicked() {
-		this.nuevaCanchaOpened = false;
+		this.sidePanelOpened = false;
 	}
 	protected onNuevaCanchaButtonClicked() {
-		this.nuevaCanchaOpened = true;
+		this.sidePanelOpened = true;
+		this.isEdition = false;
+	}
+
+	protected onEditarCanchaButtonClicked() {
+		this.isEdition = true;
+		this.sidePanelOpened = true;
 	}
 }

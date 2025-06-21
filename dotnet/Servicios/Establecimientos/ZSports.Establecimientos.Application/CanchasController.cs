@@ -2,6 +2,7 @@
 using ZSports.Contracts;
 using ZSports.Establecimientos.Contracts.Canchas;
 using ZSports.Establecimientos.Contracts.Canchas.CrearCancha;
+using ZSports.Establecimientos.Contracts.Canchas.ModificarCancha;
 
 namespace ZSports.Establecimientos.Application;
 
@@ -50,7 +51,7 @@ public class CanchasController(ICanchasService canchasService): ControllerBase
 
 	[HttpGet]
 	[Route("obtenerCanchaPorId")]
-	public async Task<IActionResult> ObtenerCanchaPorId([FromQuery] Guid canchaId, CancellationToken cancellationToken)
+	public async Task<IActionResult> ObtenerCanchaPorId([FromQuery] Guid canchaId, CancellationToken cancellationToken = default)
 	{
 		try
 		{
@@ -64,6 +65,21 @@ public class CanchasController(ICanchasService canchasService): ControllerBase
 		catch (Exception)
 		{
 			return BadRequest($"Ocurrio un error al obtener la cancha con Id: {canchaId}");
+		}
+	}
+
+	[HttpPut]
+	[Route("editarCancha")]
+	public async Task<IActionResult> EditarCancha([FromBody] ModificarCanchaRequest request, CancellationToken cancellationToken = default)
+	{
+		try
+		{
+			var canchaEditada = await canchasService.ModificarAsync(request, cancellationToken);
+			return Ok(canchaEditada);
+		}
+		catch (Exception)
+		{
+			return BadRequest($"Ocurrio un error durante el proceso de edicion de la cancha numero: {request.Id}");
 		}
 	}
 }
