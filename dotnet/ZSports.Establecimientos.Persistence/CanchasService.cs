@@ -101,6 +101,9 @@ public class CanchasService(ILogger<CanchasService> logger, IUnitOfWork unitOfWo
             canchaExistente.SetTipoSuelo(cancha.TipoSuelo);
             canchaExistente.SetEstablecimiento(cancha.EstablecimientoId);
 
+            unitOfWork.GetRepository<Cancha, Guid>().Update(canchaExistente);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
+
             return new()
             {
                 Id = canchaExistente.Id,

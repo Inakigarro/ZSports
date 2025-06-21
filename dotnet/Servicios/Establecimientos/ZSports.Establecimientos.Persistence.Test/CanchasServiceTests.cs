@@ -3,6 +3,7 @@ using MockQueryable;
 using Moq;
 using ZSports.Contracts;
 using ZSports.Establecimientos.Contracts.Canchas.CrearCancha;
+using ZSports.Establecimientos.Contracts.Canchas.ModificarCancha;
 using ZSports.Establecimientos.Domain;
 using ZSports.Establecimientos.Domain.Enums;
 
@@ -223,10 +224,108 @@ public class CanchasServiceTests
     {
         // Arrange.
         var invalidId = Guid.Empty;
+
         // Act & Assert.
         Assert.ThrowsAsync<KeyNotFoundException>(async () => 
             await _canchasService.ObtenerPorIdAsync(invalidId, CancellationToken.None));
         
         _repoMock.Verify(r => r.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Test]
+    public void ObtenerPorId_ConErrorInesperado_LanzaException()
+    {
+        // Arrange.
+        var id = Guid.NewGuid();
+        _repoMock.Setup(r => r.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new Exception("Error inesperado"));
+
+        // Act.
+        Assert.ThrowsAsync<Exception>
+            (async () => await _canchasService.ObtenerPorIdAsync(id, CancellationToken.None));
+        _repoMock.Verify(r => r.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), Times.Once);
+
+    }
+
+    [Test]
+    public async Task ModificarAsync_ConCanchaValida_ModificaCanchaYRetornaDto()
+    {
+        // Arrange
+        var canchaExistente = new Cancha();
+        canchaExistente.SetNumero(1);
+        canchaExistente.SetTipoSuelo(TipoSuelo.Cesped);
+        canchaExistente.SetEstablecimiento(Guid.NewGuid());
+        _repoMock.Setup(repo => repo.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+                 .ReturnsAsync(canchaExistente);
+
+        var request = new ModificarCanchaRequest
+        {
+            Id = canchaExistente.Id,
+            Numero = 2,
+            TipoSuelo = TipoSuelo.PolvoLadrillo,
+            EstablecimientoId = canchaExistente.EstablecimientoId
+        };
+        // Act
+        var result = await _canchasService.ModificarAsync(request, CancellationToken.None);
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Id, Is.EqualTo(canchaExistente.Id));
+            Assert.That(result.Numero, Is.EqualTo(request.Numero));
+            Assert.That(result.TipoSuelo, Is.EqualTo(request.TipoSuelo));
+            Assert.That(result.EstablecimientoId, Is.EqualTo(canchaExistente.EstablecimientoId));
+        });
+        _repoMock.Verify(repo => repo.Update(It.IsAny<Cancha>()), Times.Once);
+        _unitOfWorkMock.Verify(uow => uow.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Test]
+    public void ModificarAsync_CanchaNoExistente_LanzaExcepcion()
+    {
+        // Arrange
+        var request = new ModificarCanchaRequest
+        {
+            Id = Guid.NewGuid(),
+            Numero = 1,
+            TipoSuelo = TipoSuelo.Cesped,
+            EstablecimientoId = Guid.NewGuid()
+        };
+
+        _repoMock.Setup(repo => repo.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+                 .ReturnsAsync((Cancha)null);
+        
+        // Act & Assert
+        Assert.ThrowsAsync<KeyNotFoundException>(async () => await _canchasService.ModificarAsync(request, CancellationToken.None));
+        
+        _repoMock.Verify(repo => repo.Update(It.IsAny<Cancha>()), Times.Never);
+        _unitOfWorkMock.Verify(uow => uow.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Never);
+    }
+
+    [Test]
+    public void ModificarAsync_CanchaInvalida_LanzaExcepcion()
+    {
+        // Arrange
+        var canchaExistente = new Cancha();
+        canchaExistente.SetNumero(1);
+        canchaExistente.SetTipoSuelo(TipoSuelo.Cesped);
+        canchaExistente.SetEstablecimiento(Guid.NewGuid());
+
+        var request = new ModificarCanchaRequest
+        {
+            Id = Guid.NewGuid(),
+            Numero = 0, // Número inválido
+            TipoSuelo = TipoSuelo.Cesped,
+            EstablecimientoId = canchaExistente.EstablecimientoId
+        };
+
+        _repoMock.Setup(repo => repo.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+                 .ReturnsAsync(canchaExistente);
+
+        // Act & Assert
+        Assert.ThrowsAsync<ArgumentException>(async () => await _canchasService.ModificarAsync(request, CancellationToken.None));
+        
+        _repoMock.Verify(repo => repo.Update(It.IsAny<Cancha>()), Times.Never);
+        _unitOfWorkMock.Verify(uow => uow.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Never);
     }
 }
