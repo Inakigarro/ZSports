@@ -1,0 +1,30 @@
+<header [id]="this.id()" class="topbar">
+	@if (this.mainButton.id !== initButton.id) {
+	<app-button
+		[id]="this.mainButton.id"
+		[label]="this.mainButton.label"
+		[hasIcon]="this.mainButton.icon !== undefined"
+		[icon]="this.mainButton.icon"
+		[type]="this.mainButton.type!"
+		[disabled]="false"
+		[hideLabelOnMobile]="true"
+		(onClick)="this.mainButtonClicked.emit($event)"
+	/>
+	}
+	<h2 class="topbar-title">{{ this.title() }}</h2>
+	@if (this.secondaryButtons.length > 0) {
+	<span class="spacer"></span>
+	@for (button of this.secondaryButtons; track $index) {
+	<app-button
+		class="secondary-button"
+		[id]="button.id"
+		[label]="button.label"
+		[hasIcon]="button.icon !== undefined"
+		[icon]="button.icon"
+		[type]="button.type!"
+		[disabled]="false"
+		[hideLabelOnMobile]="true"
+		(onClick)="secondaryButtonClicked.emit($event)"
+	/>
+	} }
+</header>

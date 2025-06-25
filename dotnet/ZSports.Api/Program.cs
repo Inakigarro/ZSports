@@ -33,6 +33,17 @@ public static class Program
             .AddScoped<IUnitOfWork, UnitOfWork>()
             .AgregarDependenciasEstablecimientos();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAngularLocalhost",
+                policy => policy
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+            );
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -42,6 +53,7 @@ public static class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseCors("AllowAngularLocalhost");
         app.UseAuthorization();
         app.MapControllers();
         app.Run();

@@ -1,0 +1,28 @@
+<app-topbar
+	[id]="this.shellTopbar.id"
+	[title]="this.shellTopbar.title"
+	[mainButton]="this.shellTopbar.mainButton"
+	[secondaryButtons]="this.shellTopbar.secondaryButtons"
+	class="shell-topbar"
+/>
+<app-navbar class="shell-navbar">
+	<app-nav-item
+		[label]="'Inicio'"
+		[icon]="'fa-solid fa-home'"
+		[route]="'./'"
+		[hideLabelOnMobile]="true"
+	/>
+	<app-nav-item
+		[label]="'Reservas'"
+		[icon]="'fa-solid fa-calendar-check'"
+		[route]="'./reservas'"
+		[hideLabelOnMobile]="true"
+	/>
+	<app-nav-item
+		[label]="'Canchas'"
+		[icon]="'fa-solid fa-futbol'"
+		[route]="'./canchas'"
+		[hideLabelOnMobile]="true"
+	/>
+</app-navbar>
+<router-outlet></router-outlet>

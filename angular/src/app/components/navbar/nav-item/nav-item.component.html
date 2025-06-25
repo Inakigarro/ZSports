@@ -1,0 +1,12 @@
+<a
+	class="nav-item"
+	[class.only-icon]="this.hideLabelOnMobile && this.isMobile && this.icon"
+	[routerLink]="route"
+	routerLinkActive="active"
+	[routerLinkActiveOptions]="{ exact: true }"
+>
+	@if (this.icon){
+	<i [class]="'nav-item-icon ' + this.icon" aria-hidden="true"></i>
+	}
+	<span class="nav-item-label">{{ label }}</span>
+</a>

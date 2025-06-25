@@ -1,0 +1,13 @@
+<app-card [id]="this.id">
+	<div card-header>
+		<h2>{{ this.title }}</h2>
+		<app-button
+			[id]="this.nuevaReservaButton.id"
+			[label]="this.nuevaReservaButton.label"
+			[hasIcon]="this.nuevaReservaButton.icon !== undefined"
+			[icon]="this.nuevaReservaButton.icon"
+			[type]="this.nuevaReservaButton.type!"
+			[disabled]="false"
+		/>
+	</div>
+</app-card>

@@ -30,6 +30,16 @@ public interface ICanchasService
     /// <param name="cancellationToken">Token de cancelación.</param>
     /// <returns>Lista paginada de canchas.</returns>
     Task<IEnumerable<CanchaDto>> ObtenerPaginadoAsync(GetItemsPaginated paginationInfo, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Obtiene una lista de canchas por el identificador del establecimiento.
+    /// </summary>
+    /// <param name="establecimientoId">El identificador del establecimiento.</param>
+    /// <param name="paginationInfo">La informacion de paginacion.</param>
+    /// <param name="cancellationToken">El token de cancelacion.</param>
+    /// <returns>Una lista paginada de canchas pertenecientes al establecimiento.</returns>
+    Task<IEnumerable<CanchaDto>> ObtenerPorEstablecimientoAsync(Guid establecimientoId, GetItemsPaginated paginationInfo, CancellationToken cancellationToken);
+
     /// <summary>
     /// Modifica una cancha existente.
     /// </summary>

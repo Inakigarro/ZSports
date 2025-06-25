@@ -1,0 +1,42 @@
+<app-side
+	[expanded]="this.sidePanelOpened"
+	[closeOnBackdrop]="true"
+	(closed)="this.onBackdropClicked()"
+>
+	<app-card main [id]="this.id">
+		<div card-header>
+			<h2>{{ this.title }}</h2>
+			<app-button
+				[id]="this.nuevaCanchaButton.id"
+				[label]="this.nuevaCanchaButton.label"
+				[hasIcon]="this.nuevaCanchaButton.icon !== undefined"
+				[icon]="this.nuevaCanchaButton.icon"
+				[type]="this.nuevaCanchaButton.type!"
+				[disabled]="false"
+				(onClick)="this.onNuevaCanchaButtonClicked()"
+			/>
+		</div>
+		<div card-body class="scrollable">
+			@if (this.canchasLoading$ | async) {
+			<div class="spinner-overlay">
+				<div class="spinner"></div>
+			</div>
+			}
+			<app-list
+				[id]="this.id"
+				[columns]="this.columns"
+				[data]="this.data"
+				(onEdit)="this.onEditarCanchaButtonClicked()"
+				(onDelete)="this.onEliminarCanchaButtonClicked($event)"
+			/>
+		</div>
+	</app-card>
+	@if (this.sidePanelOpened) {
+	<app-crear-editar-cancha
+		side
+		[isEdition]="this.isEdition"
+		(onClose)="this.onBackdropClicked()"
+	>
+	</app-crear-editar-cancha>
+	}
+</app-side>

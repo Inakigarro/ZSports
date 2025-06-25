@@ -1,0 +1,11 @@
+<article class="card">
+	<header [id]="this.id() + '-header'" class="card-header">
+		<ng-content select="[card-header]"></ng-content>
+	</header>
+	<section [id]="this.id() + '-body'" class="card-body">
+		<ng-content select="[card-body]"></ng-content>
+	</section>
+	<footer [id]="this.id() + '-footer'" class="card-footer">
+		<ng-content select="[card-footer]"></ng-content>
+	</footer>
+</article>
