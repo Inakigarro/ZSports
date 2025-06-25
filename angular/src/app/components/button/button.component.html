@@ -1,6 +1,9 @@
 <button
 	[id]="this.id()"
 	class="button"
+	[class.icon-only]="
+		this.hideLabelOnMobile() && this.isMobile && this.hasIcon()
+	"
 	[ngClass]="this.disabled() ? 'disabled' : this.type()"
 	[disabled]="this.disabled()"
 	(click)="this.onButtonClick()"

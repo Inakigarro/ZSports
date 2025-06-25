@@ -1,5 +1,6 @@
 <a
 	class="nav-item"
+	[class.only-icon]="this.hideLabelOnMobile && this.isMobile && this.icon"
 	[routerLink]="route"
 	routerLinkActive="active"
 	[routerLinkActiveOptions]="{ exact: true }"

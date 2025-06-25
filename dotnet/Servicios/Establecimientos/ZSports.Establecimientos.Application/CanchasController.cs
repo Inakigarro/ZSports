@@ -82,4 +82,23 @@ public class CanchasController(ICanchasService canchasService): ControllerBase
 			return BadRequest($"Ocurrio un error durante el proceso de edicion de la cancha numero: {request.Id}");
 		}
 	}
+
+	[HttpDelete]
+	[Route("eliminarCancha")]
+	public async Task<IActionResult> EliminarCancha([FromQuery] Guid canchaId, CancellationToken cancellationToken = default)
+	{
+		try
+		{
+			await canchasService.EliminarAsync(canchaId, cancellationToken);
+			return Ok(new { Message = $"La cancha con Id: {canchaId} fue eliminada correctamente." });
+		}
+		catch (KeyNotFoundException)
+		{
+			return NotFound($"No se encontro una cancha con Id: {canchaId}");
+		}
+		catch (Exception)
+		{
+			return BadRequest($"Ocurrio un error al eliminar la cancha con Id: {canchaId}");
+		}
+    }
 }

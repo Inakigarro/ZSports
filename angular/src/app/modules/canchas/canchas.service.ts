@@ -2,7 +2,11 @@ import { Injectable } from "@angular/core";
 import { Action, Store } from "@ngrx/store";
 import { environment } from "@app/environments/environment.local";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Cancha, CrearCanchaRequest } from "./canchas.models";
+import {
+	Cancha,
+	CrearCanchaRequest,
+	EditarCanchaRequest,
+} from "./canchas.models";
 import {
 	selectCanchas,
 	selectCrearCanchaSucceded,
@@ -49,6 +53,21 @@ export class CanchasService {
 		let params = new HttpParams();
 		params = params.set("canchaId", id);
 		return this.httpClient.get<Cancha>(`${this.url}/obtenerCanchaPorId`, {
+			params,
+		});
+	}
+
+	public editarCancha(editarCanchaRequest: EditarCanchaRequest) {
+		return this.httpClient.put<Cancha>(
+			`${this.url}/editarCancha`,
+			editarCanchaRequest
+		);
+	}
+
+	public eliminarCancha(id: string) {
+		let params = new HttpParams();
+		params = params.set("canchaId", id);
+		return this.httpClient.delete(`${this.url}/eliminarCancha`, {
 			params,
 		});
 	}

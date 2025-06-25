@@ -10,7 +10,12 @@ import { establecimientoId } from "../canchas.models";
 export class CanchasEffects {
 	public initCanchas$ = createEffect(() =>
 		this.actions.pipe(
-			ofType(CanchasActions.iniciarCargaDeCanchas, CanchasActions.canchaCreada),
+			ofType(
+				CanchasActions.iniciarCargaDeCanchas,
+				CanchasActions.canchaCreada,
+				CanchasActions.canchaEditada,
+				CanchasActions.canchaEliminada
+			),
 			switchMap(() =>
 				this.service.cargarCanchasPorEstablecimiento(establecimientoId).pipe(
 					filter((x) => !!x),
@@ -50,6 +55,31 @@ export class CanchasEffects {
 			)
 		)
 	);
+
+	public editarCancha$ = createEffect(() =>
+		this.actions.pipe(
+			ofType(CanchasActions.editarCancha),
+			switchMap((action) =>
+				this.service.editarCancha(action.cancha).pipe(
+					filter((x) => !!x),
+					map(() => CanchasActions.canchaEditada())
+				)
+			)
+		)
+	);
+
+	public eliminarCancha$ = createEffect(() =>
+		this.actions.pipe(
+			ofType(CanchasActions.eliminarCancha),
+			switchMap((action) =>
+				this.service.eliminarCancha(action.canchaId).pipe(
+					filter((x) => !!x),
+					map(() => CanchasActions.canchaEliminada())
+				)
+			)
+		)
+	);
+
 	constructor(
 		private readonly actions: Actions,
 		private readonly service: CanchasService

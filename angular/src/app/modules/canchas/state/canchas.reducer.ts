@@ -50,5 +50,23 @@ export const canchasReducer = createReducer(
 		...state,
 		loading: false,
 		crearCanchaSucceded: true,
+	})),
+	on(CanchasActions.editarCancha, (state) => ({
+		...state,
+		loading: true,
+		editarCanchaSucceded: false,
+	})),
+	on(CanchasActions.canchaEditada, (state) => ({
+		...state,
+		loading: false,
+		editarCanchaSucceded: true,
+	})),
+	on(CanchasActions.eliminarCancha, (state) => ({
+		...state,
+		loading: true,
+	})),
+	on(CanchasActions.canchaEliminada, (state) => ({
+		...state,
+		loading: false,
 	}))
 );

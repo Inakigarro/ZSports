@@ -86,4 +86,8 @@ export class CanchasListComponent implements OnInit, OnDestroy {
 		this.isEdition = true;
 		this.sidePanelOpened = true;
 	}
+
+	protected onEliminarCanchaButtonClicked(canchaId: string) {
+		this.service.dispatch(CanchasActions.eliminarCancha({ canchaId }));
+	}
 }

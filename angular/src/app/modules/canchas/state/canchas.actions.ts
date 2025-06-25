@@ -16,5 +16,7 @@ export const CanchasActions = createActionGroup({
 		"Cancha Creada": emptyProps(),
 		"Editar Cancha": props<{ cancha: EditarCanchaRequest }>(),
 		"Cancha Editada": emptyProps(),
+		"Eliminar Cancha": props<{ canchaId: string }>(),
+		"Cancha Eliminada": emptyProps(),
 	},
 });

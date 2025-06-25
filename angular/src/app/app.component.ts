@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { ButtonComponent } from "./components/button/button.component";
-import { InputComponent } from "./components/form/input/input.component";
 import { Action, Store } from "@ngrx/store";
 import {
 	FormControl,
@@ -13,13 +11,8 @@ import {
 } from "@angular/forms";
 import { Button } from "./components/shared/button/button.models";
 import { buttonClicked } from "./components/shared/button/button.actions";
-import { LabelComponent } from "./components/form/label/label.component";
-import {
-	SelectComponent,
-	SelectOption,
-} from "./components/form/select/select.component";
+import { SelectOption } from "./components/form/select/select.component";
 import { TopbarComponent } from "./components/topbar/topbar.component";
-import { DatePickerComponent } from "./components/form/date-picker/date-picker.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { Topbar } from "./components/shared/topbar/topbar.models";
 import { NavItemComponent } from "./components/navbar/nav-item/nav-item.component";

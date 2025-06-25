@@ -80,7 +80,7 @@
 .button-label {
 	margin-left: 0.25rem;
 	margin-right: 0.25rem;
-	font-size: clamp(0.5rem, 1.5vw, 2rem);
+	font-size: clamp(0.75rem, 1.5vw, 2rem);
 	color: $background;
 	font-weight: 600;
 }
@@ -89,4 +89,27 @@
 	font-size: clamp(0.5rem, 1.5vw, 2rem);
 	color: $background;
 	font-weight: 600;
+}
+
+@media (max-width: 600px) {
+	.button {
+		padding: 0.5rem 1rem;
+		font-size: 0.9rem;
+
+		&.icon-only {
+			font-size: 1.2rem;
+			padding: 0.4em 0.6em;
+			span {
+				display: none;
+			}
+		}
+	}
+
+	.button-label {
+		font-size: 0.8rem;
+	}
+
+	.button-icon {
+		font-size: 1rem;
+	}
 }

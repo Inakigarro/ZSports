@@ -7,6 +7,7 @@
 		[icon]="this.mainButton.icon"
 		[type]="this.mainButton.type!"
 		[disabled]="false"
+		[hideLabelOnMobile]="true"
 		(onClick)="this.mainButtonClicked.emit($event)"
 	/>
 	}
@@ -22,6 +23,7 @@
 		[icon]="button.icon"
 		[type]="button.type!"
 		[disabled]="false"
+		[hideLabelOnMobile]="true"
 		(onClick)="secondaryButtonClicked.emit($event)"
 	/>
 	} }

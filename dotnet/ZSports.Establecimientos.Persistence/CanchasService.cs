@@ -80,9 +80,28 @@ public class CanchasService(ILogger<CanchasService> logger, IUnitOfWork unitOfWo
         }
     }
 
-    public Task EliminarAsync(Guid id, CancellationToken cancellationToken)
+    public async Task EliminarAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        try
+        {
+            logger.LogInformation("Iniciando el proceso de eliminación de la cancha con Id: {canchaId}", id);
+            var repository = unitOfWork.GetRepository<Cancha, Guid>();
+            var cancha = await repository.GetByIdAsync(id, cancellationToken);
+            if (cancha == null)
+            {
+                logger.LogError("No se encontró la cancha con Id: {canchaId}", id);
+                throw new KeyNotFoundException($"No se encontró la cancha con Id: {id}");
+            }
+
+            logger.LogInformation("Cancha encontrada: {canchaId}. Procediendo a eliminar.", cancha.Id);
+            repository.Delete(cancha);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception)
+        {
+            logger.LogError("Error al eliminar la cancha con Id: {canchaId}", id);
+            throw;
+        }
     }
 
     public async Task<CanchaDto> ModificarAsync(ModificarCanchaRequest cancha, CancellationToken cancellationToken)
