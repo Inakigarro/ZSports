@@ -1,1 +1,20 @@
-<button>aceptar</button>
+<button
+	[id]="this.id()"
+	class="zs-btn"
+	[class.icon-only]="this.hideLabelOnMobile() && this.icon() && this.isMobile"
+	[ngClass]="this.disabled() ? 'disabled' : this.type()"
+	[disabled]="this.disabled()"
+	(click)="this.onClick.emit(this.id())"
+>
+	<i
+		*ngIf="this.icon() && this.iconPosition() === 'left'"
+		class="zs-btn-icon"
+		[ngClass]="this.icon()"
+	></i>
+	<span *ngIf="this.label()" class="zs-btn-label">{{ this.label() }}</span>
+	<i
+		*ngIf="this.icon() && this.iconPosition() === 'right'"
+		class="zs-btn-icon"
+		[ngClass]="this.icon()"
+	></i>
+</button>

@@ -11,84 +11,44 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Large",
+                "name": "BasicButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/button.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'basic-button',\r\n\t\tlabel: 'Click Me',\r\n\t\ttype: 'primary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
-                "name": "LoggedIn",
+                "name": "BasicButtonWithIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/header.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'button-with-icon',\r\n\t\tlabel: 'Guardar',\r\n\t\ttype: 'primary',\r\n\t\ticon: 'fa-solid fa-save',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
-                "name": "LoggedIn",
+                "name": "DangerButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/page.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'danger-button',\r\n\t\tlabel: 'Delete',\r\n\t\ttype: 'danger',\r\n\t\ticon: 'fa-solid fa-trash',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
-                "name": "LoggedOut",
+                "name": "DisabledButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/header.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/stories/page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/stories/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/stories/page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<PageComponent>",
-                "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'disabled-button',\r\n\t\tlabel: 'Disabled',\r\n\t\ttype: 'primary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: true,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
                 "name": "preview",
@@ -101,34 +61,24 @@
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
-                "name": "Primary",
+                "name": "SecondaryButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/button.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'secondary-button',\r\n\t\tlabel: 'Secondary Action',\r\n\t\ttype: 'secondary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
-                "name": "Secondary",
+                "name": "SuccessButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/components/src/stories/button.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'success-button',\r\n\t\tlabel: 'Success',\r\n\t\ttype: 'success',\r\n\t\ticon: 'fa-solid fa-check',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             }
         ],
         "functions": [],
@@ -138,29 +88,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/components/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/components/src/stories/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<PageComponent>",
-                "file": "projects/components/src/stories/page.stories.ts",
+                "file": "projects/components/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -169,120 +97,66 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/components/src/stories/button.stories.ts": [
+            "projects/components/src/lib/button/button.component.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "BasicButton",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/button.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'basic-button',\r\n\t\tlabel: 'Click Me',\r\n\t\ttype: 'primary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 },
                 {
-                    "name": "meta",
+                    "name": "BasicButtonWithIcon",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/stories/button.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'button-with-icon',\r\n\t\tlabel: 'Guardar',\r\n\t\ttype: 'primary',\r\n\t\ticon: 'fa-solid fa-save',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 },
                 {
-                    "name": "Secondary",
+                    "name": "DangerButton",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/button.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'danger-button',\r\n\t\tlabel: 'Delete',\r\n\t\ttype: 'danger',\r\n\t\ticon: 'fa-solid fa-trash',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 },
                 {
-                    "name": "Small",
+                    "name": "DisabledButton",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/button.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
-                }
-            ],
-            "projects/components/src/stories/header.stories.ts": [
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'disabled-button',\r\n\t\tlabel: 'Disabled',\r\n\t\ttype: 'primary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: true,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
+                },
                 {
-                    "name": "LoggedIn",
+                    "name": "SecondaryButton",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/header.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'secondary-button',\r\n\t\tlabel: 'Secondary Action',\r\n\t\ttype: 'secondary',\r\n\t\ticon: '',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 },
                 {
-                    "name": "LoggedOut",
+                    "name": "SuccessButton",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/components/src/stories/header.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-                }
-            ],
-            "projects/components/src/stories/page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<PageComponent>",
-                    "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'success-button',\r\n\t\tlabel: 'Success',\r\n\t\ttype: 'success',\r\n\t\ticon: 'fa-solid fa-check',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 }
             ],
             "projects/components/.storybook/preview.ts": [
@@ -301,39 +175,13 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/components/src/stories/button.stories.ts": [
+            "projects/components/src/lib/button/button.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/components/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/components/src/stories/header.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<HeaderComponent>",
-                    "file": "projects/components/src/stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/components/src/stories/page.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<PageComponent>",
-                    "file": "projects/components/src/stories/page.stories.ts",
+                    "file": "projects/components/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -358,137 +206,67 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
+                "name": "BasicButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "meta",
+                "name": "BasicButtonWithIcon",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "DangerButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "DisabledButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Small",
+                "name": "SecondaryButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/button.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/header.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedIn",
+                "name": "SuccessButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/components/src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/header.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/stories/page.stories.ts",
+                "filePath": "projects/components/src/lib/button/button.component.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
