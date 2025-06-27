@@ -1,0 +1,22 @@
+<header class="shell-topbar">
+	<zs-button
+		[id]="this.mainButton.id"
+		[label]="this.mainButton.label"
+		[icon]="this.mainButton.icon"
+		[iconPosition]="this.mainButton.iconPosition!"
+		[hideLabelOnMobile]="this.mainButton.hideLabelOnMobile!"
+		[disabled]="this.mainButton.disabled!"
+		(onClick)="this.onButtonClick($event)"
+	/>
+	<h1 class="main-title">ZSports - {{ this.title() }}</h1>
+	<span class="spacer"></span>
+	<zs-button
+		[id]="this.userButton.id"
+		[label]="this.userButton.label"
+		[icon]="this.userButton.icon"
+		[iconPosition]="this.userButton.iconPosition!"
+		[hideLabelOnMobile]="this.userButton.hideLabelOnMobile!"
+		[disabled]="this.userButton.disabled!"
+		(onClick)="this.onButtonClick($event)"
+	/>
+</header>

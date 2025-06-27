@@ -1,61 +1,65 @@
 .zs-btn {
+	border-width: 0;
 	border-radius: 8px;
-	font-weight: 600;
+	font-weight: 400;
+	padding: 0.5rem 0.75rem;
 
 	&.primary {
 		background: var(--zs-btn-primary-bg, #00ff88);
-		box-shadow: 0 1px 4px rgba(0, 180, 255, 0.15);
 		transition: background 0.2s, box-shadow 0.2s;
+		border-bottom: 2px solid var(--zs-btn-secondary-bg, #00b4ff);
+		border-right: 2px solid var(--zs-btn-secondary-bg, #00b4ff);
 
 		&:hover {
 			background: var(--zs-btn-secondary-bg, #00b4ff);
-			box-shadow: 0 2px 8px rgba(0, 180, 255, 0.25);
+			border-bottom: 2px solid var(--zs-btn-accent, #00b4ff);
+			border-right: 2px solid var(--zs-btn-accent, #00b4ff);
 		}
 	}
 
 	&.secondary {
 		background: var(--zs-btn-secondary-bg, #00b4ff);
-		box-shadow: 0 1px 4px rgba(0, 180, 255, 0.15);
 		transition: background 0.2s, box-shadow 0.2s;
 
 		&:hover {
 			background: var(--zs-btn-primary-bg, #00ff88);
-			box-shadow: 0 2px 8px rgba(0, 180, 255, 0.25);
+			border-bottom: 2px solid var(--zs-btn-accent, #00ff88);
+			border-right: 2px solid var(--zs-btn-accent, #00ff88);
 		}
 	}
 
 	&.danger {
 		background: var(--zs-btn-danger-bg, #ff0000);
-		box-shadow: 0 1px 4px rgba(255, 0, 0, 0.15);
 		transition: background 0.2s, box-shadow 0.2s;
 
 		&:hover {
 			background: var(--zs-btn-danger-hover-bg, #fa2020);
-			box-shadow: 0 2px 8px rgba(255, 0, 0, 0.25);
+			border-bottom: 2px solid var(--zs-btn-accent, #fa2020);
+			border-right: 2px solid var(--zs-btn-accent, #fa2020);
 		}
 	}
 
 	&.success {
 		background: var(--zs-btn-success-bg, #00ff88);
-		box-shadow: 0 1px 4px rgba(0, 255, 136, 0.15);
 		transition: background 0.2s, box-shadow 0.2s;
 
 		&:hover {
 			background: var(--zs-btn-success-hover-bg, #00e67f);
-			box-shadow: 0 2px 8px rgba(0, 255, 136, 0.25);
+			border-bottom: 2px solid var(--zs-btn-accent, #00e67f);
+			border-right: 2px solid var(--zs-btn-accent, #00e67f);
 		}
 	}
 
 	&.disabled {
 		background: var(--zs-btn-disabled-bg, #23272f);
 		color: var(--zs-text-disabled, #b0b3b8);
-		border: 2px solid var(--zs-accent, #00b4ff);
-		box-shadow: none;
+		border: 2px solid var(--zs-btn-accent, #00b4ff);
 		cursor: not-allowed;
 
 		&:hover {
 			background: var(--zs-btn-disabled-bg, #23272f);
-			box-shadow: none;
+			border-bottom: none;
+			border-right: none;
 		}
 	}
 }
@@ -64,10 +68,12 @@
 	margin-left: 0.25rem;
 	margin-right: 0.25rem;
 	font-size: clamp(0.5rem, 1vw, 1.5rem);
+	color: var(--zs-text-primary);
 }
 
 .zs-btn-icon {
 	font-size: clamp(0.5rem, 1vw, 1.5rem);
+	color: var(--zs-text-primary);
 }
 
 @media (max-width: 600px) {

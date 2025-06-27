@@ -1,8 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, OnDestroy, OnInit, output } from '@angular/core';
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success';
-type IconPosition = 'left' | 'right';
+export interface Button {
+	id: string;
+	label?: string;
+	icon?: string;
+	type?: ButtonType;
+	iconPosition?: IconPosition;
+	disabled?: boolean;
+	hideLabelOnMobile?: boolean;
+}
+
+export type ButtonType =
+	| 'primary'
+	| 'secondary'
+	| 'tertiary'
+	| 'danger'
+	| 'success';
+export type IconPosition = 'left' | 'right';
 
 @Component({
 	selector: 'zs-button',
