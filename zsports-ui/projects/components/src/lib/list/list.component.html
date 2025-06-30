@@ -1,0 +1,43 @@
+<table [id]="this.id() + '-list'" class="list-table">
+	<thead>
+		<tr>
+			@for (col of columns(); track col.key) {
+			<th [style.width]="col.width" [style.text-align]="col.align || 'left'">
+				{{ col.label }}
+			</th>
+			}
+			<th id="list-actions" class="list-actions-header"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (row of this.items(); track row) {
+		<tr>
+			@for (col of columns(); track col.key) {
+			<td [style.text-align]="col.align || 'left'">
+				{{ row[col.key] }}
+			</td>
+			}
+			<td class="list-actions">
+				<zs-button
+					[id]="this.editarButton.id"
+					[icon]="this.editarButton.icon"
+					[iconPosition]="this.editarButton.iconPosition!"
+					[type]="this.editarButton.type!"
+					[hideLabelOnMobile]="this.editarButton.hideLabelOnMobile!"
+					[disabled]="this.editarButton.disabled!"
+					(onClick)="this.onEdit.emit(row['id'])"
+				/>
+				<zs-button
+					[id]="this.eliminarButton.id"
+					[icon]="this.eliminarButton.icon"
+					[iconPosition]="this.eliminarButton.iconPosition!"
+					[type]="this.eliminarButton.type!"
+					[hideLabelOnMobile]="this.eliminarButton.hideLabelOnMobile!"
+					[disabled]="this.eliminarButton.disabled!"
+					(onClick)="this.onDelete.emit(row['id'])"
+				/>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

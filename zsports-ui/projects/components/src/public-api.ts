@@ -1,8 +1,4 @@
-/*
- * Public API Surface of components
- */
-
-export * from './lib/components.service';
-export * from './lib/components.component';
-
 export * from './lib/button/button.component';
+export * from './lib/side/side.component';
+export * from './lib/list/list.component';
+export * from './lib/card/card.component';

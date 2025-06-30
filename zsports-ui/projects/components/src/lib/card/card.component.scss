@@ -1,0 +1,36 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--zs-bg-surface-color, #23272f);
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+	padding: 0.5rem 1rem;
+
+	.card-header {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		margin-bottom: 1.5rem;
+		color: var(--zs-text-primary, #ffffff);
+	}
+
+	.card-body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-bottom: 1.5rem;
+		position: relative;
+		color: var(--zs-text-primary, whitesmoke);
+	}
+
+	.card-footer {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1rem;
+	}
+}

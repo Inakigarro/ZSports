@@ -1,0 +1,25 @@
+<zs-side>
+	<zs-card main [id]="this.id">
+		<div card-header>
+			<h2>{{ this.title }}</h2>
+			<zs-button
+				[id]="this.nuevaCanchaButton.id"
+				[label]="this.nuevaCanchaButton.label"
+				[type]="this.nuevaCanchaButton.type!"
+				[icon]="this.nuevaCanchaButton.icon"
+				[iconPosition]="this.nuevaCanchaButton.iconPosition!"
+				[hideLabelOnMobile]="this.nuevaCanchaButton.hideLabelOnMobile!"
+				[disabled]="this.nuevaCanchaButton.disabled!"
+			/>
+		</div>
+		<div card-body>
+			<zs-list
+				[id]="this.id"
+				[columns]="this.columns"
+				[items]="this.canchas"
+				(onEdit)="this.onEdit($event)"
+				(onDelete)="this.onDelete($event)"
+			/>
+		</div>
+	</zs-card>
+</zs-side>

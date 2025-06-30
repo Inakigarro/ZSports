@@ -2,14 +2,14 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
 	{
-		path: 'inicio',
-		title: 'Inicio',
+		path: 'canchas',
+		title: 'Canchas',
 		loadComponent: () =>
-			import('./home/home.component').then((c) => c.HomeComponent),
+			import('./canchas/canchas.component').then((c) => c.CanchasComponent),
 	},
 	{
 		path: '',
-		redirectTo: 'inicio',
+		redirectTo: 'canchas',
 		pathMatch: 'full',
 	},
 ];

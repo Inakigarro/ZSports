@@ -1,0 +1,26 @@
+<zs-side
+	[expanded]="this.expanded"
+	[closeOnBackdrop]="true"
+	(closed)="this.expanded = false"
+>
+	<div main>
+		<zs-button
+			[id]="this.openSidePanelButton.id"
+			[label]="this.openSidePanelButton.label"
+			[type]="this.openSidePanelButton.type!"
+			[disabled]="this.openSidePanelButton.disabled!"
+			[hideLabelOnMobile]="this.openSidePanelButton.hideLabelOnMobile!"
+			(onClick)="this.toggleSidePanel()"
+		/>
+	</div>
+	<div side class="side-panel">
+		<zs-button
+			[id]="this.closeSidePanelButton.id"
+			[label]="this.closeSidePanelButton.label"
+			[type]="this.closeSidePanelButton.type!"
+			[disabled]="this.closeSidePanelButton.disabled!"
+			[hideLabelOnMobile]="this.closeSidePanelButton.hideLabelOnMobile!"
+			(onClick)="this.toggleSidePanel()"
+		/>
+	</div>
+</zs-side>

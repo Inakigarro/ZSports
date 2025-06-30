@@ -1,6 +1,52 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "Item",
+            "id": "interface-Item-2abfd807f8a3efcc23e58d73f3d1fd243fdd55f8e22d3837c6e3998110c48c4d8e38f5d6cd7460899eeaf52f292b95dd433219e430d8cdc46bd2cda38478ec05",
+            "file": "projects/components/src/lib/list/list.component.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Meta, StoryObj } from '@storybook/angular';\r\nimport { ListComponent } from './list.component';\r\n\r\ninterface Item {\r\n\tid: string;\r\n\tnumber: number;\r\n\tdescription: string;\r\n}\r\n\r\nexport default {\r\n\ttitle: 'List',\r\n\tcomponent: ListComponent,\r\n} as Meta<ListComponent<Item>>;\r\n\r\ntype Story = StoryObj<ListComponent<Item>>;\r\n\r\nexport const BasicList: Story = {\r\n\targs: {\r\n\t\tid: 'basic-list',\r\n\t\tcolumns: [\r\n\t\t\t{ key: 'number', label: 'Number', align: 'left', width: '100px' },\r\n\t\t\t{ key: 'description', label: 'Description', align: 'left' },\r\n\t\t],\r\n\t\titems: [\r\n\t\t\t{ id: '1', number: 1, description: 'Item 1' },\r\n\t\t\t{ id: '2', number: 2, description: 'Item 2' },\r\n\t\t\t{ id: '3', number: 3, description: 'Item 3' },\r\n\t\t],\r\n\t},\r\n};\r\n",
+            "properties": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "number",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -31,6 +77,16 @@
                 "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'button-with-icon',\r\n\t\tlabel: 'Guardar',\r\n\t\ttype: 'primary',\r\n\t\ticon: 'fa-solid fa-save',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
             },
             {
+                "name": "BasicList",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/list/list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'basic-list',\r\n\t\tcolumns: [\r\n\t\t\t{ key: 'number', label: 'Number', align: 'left', width: '100px' },\r\n\t\t\t{ key: 'description', label: 'Description', align: 'left' },\r\n\t\t],\r\n\t\titems: [\r\n\t\t\t{ id: '1', number: 1, description: 'Item 1' },\r\n\t\t\t{ id: '2', number: 2, description: 'Item 2' },\r\n\t\t\t{ id: '3', number: 3, description: 'Item 3' },\r\n\t\t],\r\n\t},\r\n}"
+            },
+            {
                 "name": "DangerButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -39,6 +95,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'danger-button',\r\n\t\tlabel: 'Delete',\r\n\t\ttype: 'danger',\r\n\t\ticon: 'fa-solid fa-trash',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/card/card.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
             },
             {
                 "name": "DisabledButton",
@@ -89,6 +155,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/components/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "projects/components/src/lib/card/card.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ListComponent<Item>>",
+                "file": "projects/components/src/lib/list/list.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -159,6 +247,30 @@
                     "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'success-button',\r\n\t\tlabel: 'Success',\r\n\t\ttype: 'success',\r\n\t\ticon: 'fa-solid fa-check',\r\n\t\ticonPosition: 'left',\r\n\t\tdisabled: false,\r\n\t\thideLabelOnMobile: false,\r\n\t},\r\n}"
                 }
             ],
+            "projects/components/src/lib/list/list.component.stories.ts": [
+                {
+                    "name": "BasicList",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/list/list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'basic-list',\r\n\t\tcolumns: [\r\n\t\t\t{ key: 'number', label: 'Number', align: 'left', width: '100px' },\r\n\t\t\t{ key: 'description', label: 'Description', align: 'left' },\r\n\t\t],\r\n\t\titems: [\r\n\t\t\t{ id: '1', number: 1, description: 'Item 1' },\r\n\t\t\t{ id: '2', number: 2, description: 'Item 2' },\r\n\t\t\t{ id: '3', number: 3, description: 'Item 3' },\r\n\t\t],\r\n\t},\r\n}"
+                }
+            ],
+            "projects/components/src/lib/card/card.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/card/card.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                }
+            ],
             "projects/components/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -182,6 +294,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/components/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/components/src/lib/card/card.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "projects/components/src/lib/card/card.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/components/src/lib/list/list.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ListComponent<Item>>",
+                    "file": "projects/components/src/lib/list/list.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -267,6 +405,55 @@
             },
             {
                 "filePath": "projects/components/src/lib/button/button.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/card/card.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/card/card.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/list/list.component.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Item",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/list/list.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicList",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/list/list.component.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

@@ -1,0 +1,55 @@
+<app-card [id]="this.id">
+	<div card-header>
+		<app-button
+			[id]="'nueva-cancha-modal'"
+			[icon]="'fa-solid fa-close'"
+			[hasIcon]="true"
+			[type]="'secondary'"
+			(onClick)="this.onClose.emit()"
+		/>
+		<h3 class="nueva-cancha-title">Nueva Cancha</h3>
+	</div>
+	<div card-body>
+		<form [formGroup]="this.form">
+			<div class="form-field">
+				<app-label [formControlId]="'numero-cancha'" [label]="'N° Cancha'" />
+				<app-input
+					[id]="'numero-cancha'"
+					type="number"
+					formControlName="numero"
+				/>
+			</div>
+			<div class="form-field">
+				<app-label
+					[formControlId]="'tipo-suelo-cancha'"
+					[label]="'Superficie'"
+				/>
+				<app-select
+					[id]="'tipo-suelo-cancha'"
+					[options]="this.suelosOpciones"
+					formControlName="tipoSuelo"
+				/>
+			</div>
+		</form>
+	</div>
+	<div card-footer>
+		<app-button
+			[id]="this.cancelarButton.id"
+			[label]="this.cancelarButton.label"
+			[icon]="this.cancelarButton.icon"
+			[hasIcon]="true"
+			[type]="this.cancelarButton.type!"
+			[disabled]="false"
+			(onClick)="this.onCancel()"
+		/>
+		<app-button
+			[id]="this.guardarButton.id"
+			[label]="this.guardarButton.label"
+			[icon]="this.guardarButton.icon"
+			[hasIcon]="true"
+			[type]="this.guardarButton.type!"
+			[disabled]="this.form.invalid"
+			(onClick)="this.onSubmit()"
+		/>
+	</div>
+</app-card>

@@ -3,7 +3,7 @@ import { ButtonComponent, Button } from 'components';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 
 @Component({
-	selector: 'user-shell',
+	selector: 'admin-shell',
 	templateUrl: './shell.component.html',
 	styleUrl: './shell.component.scss',
 	standalone: true,

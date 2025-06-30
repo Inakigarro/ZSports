@@ -9,7 +9,7 @@
 	left: 0;
 	right: 0;
 	z-index: 1000;
-	box-shadow: 0 2px 4px rgba(161, 161, 161, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .main-title {
@@ -24,7 +24,7 @@
 }
 
 .shell-content {
-	background-color: var(--zs-bg-color, #ffffff);
+	background-color: var(--zs-bg-surface-color, #ffffff);
 	padding-top: 2.5rem;
 	height: calc(100vh - 2.5rem);
 	overflow-y: auto;
