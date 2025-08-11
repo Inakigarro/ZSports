@@ -1,11 +1,9 @@
-using Microsoft.EntityFrameworkCore;
-using ZSports.Persistence;
-using ZSports.Domain;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ZSports.Contracts;
-using ZSports.Establecimientos.Contracts;
-using ZSports.Establecimientos.Persistence;
+using ZSports.Domain;
 using ZSports.Establecimientos.Application;
+using ZSports.Persistence;
 
 namespace ZSports.Api;
 

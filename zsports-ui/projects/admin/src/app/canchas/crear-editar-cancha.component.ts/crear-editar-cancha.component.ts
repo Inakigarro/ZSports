@@ -9,7 +9,14 @@ import {
 	parseTipoSuelo,
 	TipoSuelo,
 } from '../models';
-import { CardComponent, ButtonComponent, Button } from 'components';
+import {
+	CardComponent,
+	ButtonComponent,
+	Button,
+	LabelComponent,
+	SelectOption,
+	SelectComponent,
+} from 'components';
 import {
 	FormBuilder,
 	FormControl,
@@ -20,17 +27,25 @@ import {
 } from '@angular/forms';
 
 @Component({
-	selector: 'app-crear-editar-cancha',
+	selector: 'zs-crear-editar-cancha',
 	standalone: true,
 	templateUrl: './crear-editar-cancha.component.html',
 	styleUrl: './crear-editar-cancha.component.scss',
 	providers: [],
-	imports: [CardComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+	imports: [
+		CardComponent,
+		ButtonComponent,
+		FormsModule,
+		ReactiveFormsModule,
+		LabelComponent,
+		SelectComponent,
+	],
 })
 export class CrearEditarCanchaComponent implements OnInit, OnDestroy {
 	private destroy$ = new Subject<void>();
 	protected id: string = 'nueva-cancha-modal';
 	protected form: FormGroup;
+	protected suelosOpciones: SelectOption[] = [];
 
 	protected guardarButton: Button = {
 		id: 'guardar-cancha-button',
@@ -46,6 +61,7 @@ export class CrearEditarCanchaComponent implements OnInit, OnDestroy {
 	};
 
 	public isEdition = input<boolean>(false);
+	public currentCancha = input<Cancha>();
 	public onClose = output<void>();
 	constructor(
 		private readonly service: CanchasService,
@@ -71,15 +87,10 @@ export class CrearEditarCanchaComponent implements OnInit, OnDestroy {
 				value: tiposSuelo,
 			}));
 
-		if (this.isEdition()) {
-			this.currentCancha$.subscribe((cancha) => {
-				if (cancha) {
-					this.canchaActual = cancha;
-					this.form.patchValue({
-						numero: cancha.numero,
-						tipoSuelo: cancha.tipoSuelo,
-					});
-				}
+		if (this.isEdition() && this.currentCancha()) {
+			this.form.patchValue({
+				numero: this.currentCancha()!.numero,
+				tipoSuelo: this.currentCancha()!.tipoSuelo,
 			});
 		}
 	}
@@ -94,20 +105,23 @@ export class CrearEditarCanchaComponent implements OnInit, OnDestroy {
 		if (this.form.valid) {
 			if (this.isEdition()) {
 				const request: EditarCanchaRequest = {
-					id: this.canchaActual.id,
+					id: this.currentCancha()!.id,
 					numero: this.form.controls['numero'].value,
 					tipoSuelo: Number.parseInt(this.form.controls['tipoSuelo'].value),
 					establecimientoId: establecimientoId,
 				};
 
-				this.service.dispatch(CanchasActions.editarCancha({ cancha: request }));
-				this.service.editarCanchaSucceded$
+				this.service
+					.editarCancha(request)
 					.pipe(takeUntil(this.destroy$))
-					.subscribe((success) => {
-						if (success) {
+					.subscribe({
+						next: (cancha) => {
 							this.onClose.emit();
 							this.form.reset();
-						}
+						},
+						error: (error) => {
+							console.error('Error editing cancha:', error);
+						},
 					});
 			} else {
 				const request: CrearCanchaRequest = {
@@ -116,14 +130,17 @@ export class CrearEditarCanchaComponent implements OnInit, OnDestroy {
 					establecimientoId: establecimientoId,
 				};
 
-				this.service.dispatch(CanchasActions.crearCancha({ cancha: request }));
-				this.service.crearCanchaSucceded$
+				this.service
+					.agregarCancha(request)
 					.pipe(takeUntil(this.destroy$))
-					.subscribe((success) => {
-						if (success) {
+					.subscribe({
+						next: (cancha) => {
 							this.onClose.emit();
 							this.form.reset();
-						}
+						},
+						error: (error) => {
+							console.error('Error adding cancha:', error);
+						},
 					});
 			}
 		}

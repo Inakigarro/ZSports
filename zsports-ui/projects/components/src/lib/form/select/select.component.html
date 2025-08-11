@@ -1,0 +1,15 @@
+<select
+	[id]="id()"
+	[disabled]="disabled"
+	[required]="required"
+	[ngModel]="value"
+	(change)="onSelect($event)"
+	(blur)="onBlur()"
+	class="select"
+>
+	@for (option of options; track $index) {
+	<option [value]="option.value">
+		{{ option.label }}
+	</option>
+	}
+</select>

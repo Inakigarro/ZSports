@@ -104,7 +104,47 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'card',\r\n\t},\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-id',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Ingrese su nombre',\r\n\t\trequired: false,\r\n\t\tdisabled: false,\r\n\t},\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/form/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tformControlId: 'label-id',\r\n\t\tlabel: 'Nombre',\r\n\t},\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/form/select/select.components.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'select-id',\r\n\t\toptions: [\r\n\t\t\t{ label: 'Opción 1', value: 'option1' },\r\n\t\t\t{ label: 'Opción 2', value: 'option2' },\r\n\t\t\t{ label: 'Opción 3', value: 'option3' },\r\n\t\t],\r\n\t\tplaceholder: 'Selecciona una opción',\r\n\t},\r\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-disabled',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Campo deshabilitado',\r\n\t\trequired: false,\r\n\t\tdisabled: true,\r\n\t},\r\n}"
             },
             {
                 "name": "DisabledButton",
@@ -125,6 +165,16 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Required",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-required',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Campo requerido',\r\n\t\trequired: true,\r\n\t\tdisabled: false,\r\n\t},\r\n}"
             },
             {
                 "name": "SecondaryButton",
@@ -177,6 +227,39 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ListComponent<Item>>",
                 "file": "projects/components/src/lib/list/list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LabelComponent>",
+                "file": "projects/components/src/lib/form/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SelectComponent>",
+                "file": "projects/components/src/lib/form/select/select.components.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -268,7 +351,63 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'card',\r\n\t},\r\n}"
+                }
+            ],
+            "projects/components/src/lib/form/input/input.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-id',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Ingrese su nombre',\r\n\t\trequired: false,\r\n\t\tdisabled: false,\r\n\t},\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-disabled',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Campo deshabilitado',\r\n\t\trequired: false,\r\n\t\tdisabled: true,\r\n\t},\r\n}"
+                },
+                {
+                    "name": "Required",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'input-required',\r\n\t\ttype: 'text',\r\n\t\tplaceholder: 'Campo requerido',\r\n\t\trequired: true,\r\n\t\tdisabled: false,\r\n\t},\r\n}"
+                }
+            ],
+            "projects/components/src/lib/form/label/label.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/form/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tformControlId: 'label-id',\r\n\t\tlabel: 'Nombre',\r\n\t},\r\n}"
+                }
+            ],
+            "projects/components/src/lib/form/select/select.components.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/form/select/select.components.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n\targs: {\r\n\t\tid: 'select-id',\r\n\t\toptions: [\r\n\t\t\t{ label: 'Opción 1', value: 'option1' },\r\n\t\t\t{ label: 'Opción 2', value: 'option2' },\r\n\t\t\t{ label: 'Opción 3', value: 'option3' },\r\n\t\t],\r\n\t\tplaceholder: 'Selecciona una opción',\r\n\t},\r\n}"
                 }
             ],
             "projects/components/.storybook/preview.ts": [
@@ -320,6 +459,45 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ListComponent<Item>>",
                     "file": "projects/components/src/lib/list/list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/components/src/lib/form/input/input.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "projects/components/src/lib/form/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/components/src/lib/form/label/label.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LabelComponent>",
+                    "file": "projects/components/src/lib/form/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/components/src/lib/form/select/select.components.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SelectComponent>",
+                    "file": "projects/components/src/lib/form/select/select.components.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -425,6 +603,86 @@
             },
             {
                 "filePath": "projects/components/src/lib/card/card.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Required",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/input/input.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/label/label.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/label/label.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/select/select.components.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/form/select/select.components.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

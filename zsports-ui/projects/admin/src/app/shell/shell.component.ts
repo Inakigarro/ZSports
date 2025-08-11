@@ -1,17 +1,34 @@
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { ButtonComponent, Button } from 'components';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import {
+	ActivatedRoute,
+	Router,
+	RouterOutlet,
+	RouterLink,
+	RouterLinkActive,
+} from '@angular/router';
+import { routes } from '../app.routes';
+import { CommonModule } from '@angular/common';
 
 @Component({
 	selector: 'admin-shell',
 	templateUrl: './shell.component.html',
 	styleUrl: './shell.component.scss',
 	standalone: true,
-	imports: [ButtonComponent, RouterOutlet],
+	imports: [
+		ButtonComponent,
+		RouterOutlet,
+		RouterLink,
+		RouterLinkActive,
+		CommonModule,
+	],
 })
-export class ShellComponent {
+export class ShellComponent implements OnInit {
 	// Inputs.
 	title = input<string>('Inicio');
+
+	// Navigation routes
+	navigationRoutes: Array<{ path: string; title: string }> = [];
 
 	mainButton: Button = {
 		id: 'home-button',
@@ -32,6 +49,16 @@ export class ShellComponent {
 		iconPosition: 'left',
 		disabled: false,
 	};
+
+	constructor(private router: Router) {}
+
+	ngOnInit() {
+		// Extract navigation routes from app routes
+		this.navigationRoutes = routes.map((route) => ({
+			path: `/${route.path}`,
+			title: route.title as string,
+		}));
+	}
 
 	protected onButtonClick(event: string) {
 		console.log('Button clicked with Id:', event);

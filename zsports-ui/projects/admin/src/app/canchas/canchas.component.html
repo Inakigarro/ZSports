@@ -10,6 +10,7 @@
 				[iconPosition]="this.nuevaCanchaButton.iconPosition!"
 				[hideLabelOnMobile]="this.nuevaCanchaButton.hideLabelOnMobile!"
 				[disabled]="this.nuevaCanchaButton.disabled!"
+				(onClick)="this.onNuevaCancha()"
 			/>
 		</div>
 		<div card-body>
@@ -22,4 +23,12 @@
 			/>
 		</div>
 	</zs-card>
+	@if (this.sidePanelOpened) {
+	<zs-crear-editar-cancha
+		side
+		[isEdition]="this.isEdition"
+		[currentCancha]="this.currentCancha"
+		(onClose)="this.sidePanelClosed()"
+	/>
+	}
 </zs-side>

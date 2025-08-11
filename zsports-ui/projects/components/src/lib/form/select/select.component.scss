@@ -1,0 +1,21 @@
+.select {
+	background-color: var(--zs-bg-surface-color, #181a20);
+	color: var(--zs-text-primary, #fff);
+	border: 2px solid var(--zs-select-border-color, #68696d);
+	border-radius: 5px;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	transition: border-color 0.2s;
+	appearance: none;
+}
+
+.select:focus {
+	border-color: var(--zs-select-focus-border-color, #68696d);
+	outline: none;
+}
+
+select::-ms-expand {
+	display: none;
+}

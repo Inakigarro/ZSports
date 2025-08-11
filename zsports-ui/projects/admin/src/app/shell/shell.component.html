@@ -22,6 +22,22 @@
 		(onClick)="this.onButtonClick($event)"
 	/>
 </header>
+
+<nav class="shell-sidebar">
+	<ul class="nav-list">
+		<li class="nav-item" *ngFor="let route of navigationRoutes">
+			<a
+				[routerLink]="route.path"
+				routerLinkActive="active"
+				[routerLinkActiveOptions]="{ exact: true }"
+				class="nav-link"
+			>
+				<span class="nav-text">{{ route.title }}</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
 <main class="shell-content">
 	<router-outlet></router-outlet>
 </main>

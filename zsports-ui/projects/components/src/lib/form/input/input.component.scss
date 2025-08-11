@@ -1,0 +1,49 @@
+.input {
+	background-color: var(--zs-input-bg-color, #2a2d35);
+	color: var(--zs-input-text-color, #ffffff);
+	border: 2px solid var(--zs-input-border-color, #3a3e46);
+	border-radius: 5px;
+	padding: 0.75rem;
+	transition: all 0.2s ease;
+	width: 100%;
+	box-sizing: border-box;
+
+	&::placeholder {
+		color: var(--zs-input-placeholder-color, #9ca3af);
+	}
+
+	// Focus state
+	&:focus,
+	&.focused {
+		outline: none;
+		border-color: var(--zs-input-focus-border-color, #3b82f6);
+		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+	}
+
+	// Required state (solo visual, sin contenido)
+	&:required:placeholder-shown {
+		border: 4px solid var(--zs-input-required-indicator, #f59e0b);
+	}
+
+	// Valid state (con contenido válido)
+	&:valid:not(:placeholder-shown) {
+		border-color: var(--zs-input-success-border-color, #10b981);
+		background-color: var(
+			--zs-input-success-bg-color,
+			rgba(16, 185, 129, 0.05)
+		);
+	}
+
+	// Invalid state (con contenido inválido)
+	&:invalid:not(:placeholder-shown) {
+		border-color: var(--zs-input-error-border-color, #ef4444);
+		background-color: var(--zs-input-error-bg-color, rgba(239, 68, 68, 0.05));
+	}
+
+	// Disabled state
+	&:disabled {
+		background-color: var(--zs-input-disabled-bg-color, #1f2937);
+		color: var(--zs-input-disabled-text-color, #6b7280);
+		cursor: not-allowed;
+	}
+}

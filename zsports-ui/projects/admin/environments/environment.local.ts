@@ -1,3 +1,3 @@
 export const environment = {
-	rootUrl: 'http://localhost:7210',
+	rootUrl: 'https://localhost:7210',
 };
